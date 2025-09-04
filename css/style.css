@@ -1,0 +1,380 @@
+/* --- Identidade Visual --- */
+:root {
+    --cor-fundo: #F7F2ED; /* Bege claro (off-white quente) */
+    --cor-texto: #332D29; /* Marrom escuro profundo */
+    --cor-destaque: #B28D5F; /* Dourado suave (bronze) */
+    --cor-branco: #FFFFFF;
+    --cor-apoio: #8B454A; /* Vinho/Terracota suave */
+ 
+    --fonte-titulo: 'Playfair Display', serif;
+    --fonte-texto: 'Montserrat', sans-serif;
+}
+
+/* --- Reset e Estilos Globais --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--fonte-texto);
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    /* Usar padding-left/right para não zerar o padding vertical das seções */
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+section {
+    padding: 6rem 0;
+}
+
+h1, h2, h3 {
+    font-family: var(--fonte-titulo);
+    font-weight: 700;
+    color: var(--cor-texto);
+}
+
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+/* --- Componentes (Botões) --- */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--cor-destaque);
+    color: var(--cor-branco);
+    border: 2px solid var(--cor-destaque);
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--cor-destaque);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--cor-destaque);
+    border: 2px solid var(--cor-destaque);
+}
+
+.btn-outline:hover {
+    background-color: var(--cor-destaque);
+    color: var(--cor-branco);
+}
+
+/* Botão específico para WhatsApp */
+.btn-whatsapp {
+    background-color: #25d366;
+    color: var(--cor-branco);
+    border: 2px solid #25d366;
+    text-align: center;
+}
+
+.btn-whatsapp:hover {
+    background-color: transparent;
+    color: #25d366;
+}
+
+/* --- Navegação --- */
+#nav-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(247, 242, 237, 0.9); /* Fundo com transparência */
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    padding: 1rem 0;
+}
+
+#nav-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    font-family: var(--fonte-titulo);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--cor-texto);
+    text-decoration: none;
+}
+
+#nav-header ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+#nav-header ul li a {
+    margin: 0 1rem;
+    text-decoration: none;
+    color: var(--cor-texto);
+    font-weight: 500;
+}
+
+/* --- Seção Hero --- */
+#hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--cor-branco);
+    background-image: url('/assets/img/bianca-galvao-cantora-para-eventos.png'); /* Imagem de fundo principal */
+    background-size: cover; /* Faz a imagem cobrir toda a seção */
+    background-size: contain; /* Mostra a imagem inteira, sem cortes */
+    background-repeat: no-repeat; /* Garante que a imagem não se repita */
+    background-position: center; /* Centraliza a imagem */
+    background-color: var(--cor-texto); /* Cor de fundo caso a imagem não carregue */
+    background-color: var(--cor-texto); /* Preenche o fundo com a cor escura */
+    position: relative;
+    padding: 0 1rem;
+}
+
+/* Opcional: Adicionar uma sobreposição escura para melhorar a legibilidade do texto */
+#hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4); /* Sobreposição preta com 40% de opacidade */
+}
+
+/* Garante que o conteúdo fique acima da sobreposição */
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content h1 {
+    font-size: 4.5rem;
+    color: var(--cor-branco);
+}
+
+.hero-content h3 {
+    font-size: 1.5rem;
+    font-family: var(--fonte-texto);
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    color: var(--cor-branco);
+}
+
+.hero-content p {
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+}
+
+.social-icons {
+    margin-top: 2rem;
+}
+
+.social-icons a {
+    color: var(--cor-branco);
+    font-size: 1.5rem;
+    margin: 0 1rem;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--cor-destaque);
+}
+
+/* --- Seção Sobre --- */
+#sobre.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.sobre-img img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.destaques {
+    margin-top: 2rem;
+}
+
+.destaques p {
+    margin-bottom: 1rem;
+}
+
+.destaques i {
+    color: var(--cor-destaque);
+    margin-right: 0.5rem;
+}
+
+/* --- Seção Vídeo --- */
+#video {
+    background-color: var(--cor-branco);
+}
+
+.video-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+/* --- Seção Serviços --- */
+.servicos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    text-align: center;
+}
+
+.servico-card {
+    background: var(--cor-branco);
+    padding: 2.5rem 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.servico-card i {
+    font-size: 3rem;
+    color: var(--cor-destaque);
+    margin-bottom: 1rem;
+}
+
+.servico-card h3 {
+    margin-bottom: 1rem;
+}
+
+/* --- Seção Galeria --- */
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem; /* Espaçamento entre as fotos */
+}
+
+.galeria-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Sombra suave */
+}
+
+/* --- Seção Depoimentos --- */
+#depoimentos {
+    background-color: var(--cor-branco);
+    text-align: center;
+}
+
+.depoimentos-wrapper {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.depoimento-card {
+    max-width: 400px;
+}
+
+.depoimento-card p {
+    font-style: italic;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.depoimento-card span {
+    font-weight: 500;
+    color: var(--cor-destaque);
+}
+
+/* --- Seção Contato --- */
+#contato {
+    text-align: center;
+}
+
+#contato form {
+    max-width: 600px;
+    margin: 2rem auto 0 auto;
+    display: grid;
+    gap: 1rem;
+}
+
+#contato input {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: var(--fonte-texto);
+}
+
+#contato form .btn {
+    width: 100%;
+}
+/* --- Footer --- */
+footer {
+    background-color: var(--cor-texto);
+    color: var(--cor-fundo);
+    text-align: center;
+    padding: 2rem 0;
+}
+
+/* --- Botão Flutuante WhatsApp --- */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px; /* Movido para a direita */
+    background-color: #25d366; /* Cor oficial do WhatsApp */
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+}
+
+/* --- Responsividade --- */
+@media (max-width: 768px) {
+    h2 { font-size: 2rem; }
+    #nav-header ul { display: none; } /* Simplificado - ideal seria um menu hamburguer */
+    #hero h1 { font-size: 3rem; }
+    #hero h3 { font-size: 1.2rem; }
+    #sobre.container { grid-template-columns: 1fr; }
+
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px; /* Movido para a direita */
+        font-size: 24px;
+    }
+}
