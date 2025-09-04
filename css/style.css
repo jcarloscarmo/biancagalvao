@@ -261,10 +261,32 @@ h2 {
 
 /* --- Seção Serviços --- */
 .servicos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+/* Estilização para as imagens das formações musicais */
+.formacao-img {
+    width: 100%;
+    height: 200px; /* Altura fixa para todas as imagens, garantindo uniformidade */
+    border-radius: 8px;
+    margin-bottom: 20px;
+    overflow: hidden; /* Esconde qualquer parte da imagem que exceda o container */
+    background-color: #f0f0f0; /* Cor de fundo enquanto a imagem carrega */
+}
+
+.formacao-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Mostra a imagem inteira, sem cortes */
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.servico-card:hover .formacao-img img {
+    transform: scale(1.05); /* Efeito de zoom sutil ao passar o mouse */
 }
 
 .servico-card {
@@ -274,6 +296,9 @@ h2 {
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     display: flex;
     flex-direction: column;
+    text-align: center;
+    flex: 1 1 300px;
+    max-width: 350px; /* Evita que os cards fiquem muito largos */
 }
 
 .servico-card h3 {
@@ -296,10 +321,6 @@ h2 {
     font-style: italic;
     margin-bottom: 2rem;
     flex-grow: 0;
-}
-
-.servico-card .btn {
-    margin-top: auto; /* Alinha o botão na parte inferior */
 }
 
 .detalhes-grid {
@@ -420,12 +441,17 @@ h2 {
     gap: 1rem;
 }
 
-#contato input {
+#contato input,
+#contato textarea {
     width: 100%;
     padding: 1rem;
     border: 1px solid #ddd;
     border-radius: 5px;
     font-family: var(--fonte-texto);
+}
+
+#contato textarea {
+    resize: vertical;
 }
 
 #contato form .btn {
